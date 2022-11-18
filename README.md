@@ -1,6 +1,6 @@
 Welcome to the restaurant_api!
 
-You can see project files on the master branch.
+You can see project files on the [master branch](https://github.com/AndriiKazantsev/restaurant_api/tree/master).
 
 List of API urls to make requests:
 
