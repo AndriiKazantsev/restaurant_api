@@ -1,5 +1,7 @@
 Welcome to the restaurant_api!
 
+You can see project files on the master branch.
+
 List of API urls to make requests:
 
 - GET, http://127.0.0.1:8000/employee - shows the list of employees
