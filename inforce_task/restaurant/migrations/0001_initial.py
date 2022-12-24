@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
             name='Menu',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('menu_file', models.FileField(blank=True, default=None, null=True, upload_to='menus/')),
+                ('menu_file', models.FileField(blank=True, default=None, null=True, upload_to='static/')),
                 ('uploaded_at', models.DateTimeField(auto_now_add=True)),
                 ('restaurant_name', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='restaurant.restaurant')),
             ],

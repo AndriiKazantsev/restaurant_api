@@ -1,12 +1,12 @@
 from django.urls import re_path
-from . import views
+from .views import *
 
 urlpatterns = [
-    re_path(r'^restaurant$', views.restaurantApi),
-    re_path(r'^restaurant/([0-9]+)$', views.restaurantApi),
+    re_path('restaurant/', RestaurantList.as_view()),
+    re_path('restaurant/<int:pk>/', RestaurantDetail.as_view()),
 
-    re_path(r'^employee$', views.employeeApi),
-    re_path(r'^employee/([0-9]+)$', views.employeeApi),
+    re_path('employee/', EmployeeList.as_view()),
+    re_path('employee/<int:pk>/', EmployeeDetail.as_view()),
 
-    re_path(r'^employee/uploadmenu', views.uploadMenu)
+    # re_path(r'^employee/uploadmenu', views.uploadMenu),
 ]

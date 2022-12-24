@@ -1,10 +1,6 @@
 from rest_framework import serializers
 from .models import *
 
-from django.contrib.auth.models import (
-    Group
-)
-
 
 class RestaurantSerializer(serializers.ModelSerializer):
 
@@ -31,14 +27,23 @@ class EmployeeSerializer(serializers.ModelSerializer):
         ]
 
 
-class ResultSerializer(serializers.ModelSerializer):
+class UploadMenuSerializer(serializers.ModelSerializer):
 
-    restaurant = serializers.CharField(read_only=True)
+    def create(self, validated_data):
+
+        menu = Menu(
+            restaurant=validated_data['restaurant'],
+            menu_file=validated_data['file'],
+            uploaded_at=validated_data['uploaded_by']
+        )
+        menu.save()
+        return menu
 
     class Meta:
-        model = Menu
         fields = [
-            'restaurant_name',
+            'restaurant',
             'menu_file',
             'uploaded_at'
+
         ]
+        model = Menu

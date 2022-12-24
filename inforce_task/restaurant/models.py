@@ -98,9 +98,13 @@ class Employee(models.Model):
 
 class Menu(models.Model):
     """Model representing a menu."""
+    menu_name = models.CharField(max_length=100,null=True, default=None, blank=True)
     restaurant_name = models.ForeignKey(Restaurant, null=True, blank=True, on_delete=models.CASCADE)
-    menu_file = models.FileField(upload_to='menus/', default=None, null=True, blank=True)
+    menu_file = models.FileField(upload_to='static/upload', default=None, null=True, blank=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['-id']
+
     def __str__(self):
-        return self.restaurant_name.name
+        return self.menu_name
